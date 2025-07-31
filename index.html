@@ -172,6 +172,7 @@
 </section>
     <script>
         function toggleFullScreen() {
+            location.reload();
             var container = document.querySelector('.image-container');
             if (container.requestFullscreen) {
                 container.requestFullscreen();
@@ -184,9 +185,9 @@
             }
         }
 
-        function refreshReport() {
-            location.reload();
-        }
+        //function refreshReport() {
+            //location.reload();
+        //}
 
         function startImageTransition() {
             const images = document.querySelectorAll('.image-container img');
