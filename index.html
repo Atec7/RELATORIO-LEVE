@@ -136,13 +136,9 @@
             <button id="refresh-btn" onclick="refreshReport()"><b>Atualizar</b></button>
         </div> -->
     </header>
-    <div id="installPrompt" class="green-style">
-  I;./AS;SAS
+<div id="installPrompt" class="green-style">
+  Instale o .;;../;.;./;/;/;/.;/.;.;/;../;./;.;/.
 </div>
-  <div class="video-modal" id="video-modal">
-    <button id="close-video-btn">Fechar</button>
-    <iframe id="video-player" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </div>
     <main>
         <div class="report-container">
             <div class="image-container">
@@ -179,43 +175,7 @@
     <br>
 </section>
 </section>
-    <script>
-        function toggleFullScreen() {
-            var container = document.querySelector('.image-container');
-            if (container.requestFullscreen) {
-                container.requestFullscreen();
-            } else if (container.mozRequestFullScreen) { 
-                container.mozRequestFullScreen();
-            } else if (container.webkitRequestFullscreen) {
-                container.webkitRequestFullscreen();
-            } else if (container.msRequestFullscreen) {
-                container.msRequestFullscreen();
-            }
-        }
-
-        function refreshReport() {
-            location.reload();
-        }
-
-        function startImageTransition() {
-            const images = document.querySelectorAll('.image-container img');
-            let currentImageIndex = 0;
-
-            function transitionImages() {
-                images[currentImageIndex].classList.remove('active');
-                currentImageIndex = (currentImageIndex + 1) % images.length; 
-                images[currentImageIndex].classList.add('active');
-
-                setTimeout(transitionImages, 3000000);
-            }
-
-            images[currentImageIndex].classList.add('active');
-            setTimeout(transitionImages, 300000);
-        }
-
-        window.onload = startImageTransition;
-    </script>
-    <script>
+     <script>
   let deferredPrompt;
   const installPrompt = document.getElementById('installPrompt');
 
@@ -259,5 +219,42 @@
   }
 </script>
 </body>
+    <script>
+        function toggleFullScreen() {
+            var container = document.querySelector('.image-container');
+            if (container.requestFullscreen) {
+                container.requestFullscreen();
+            } else if (container.mozRequestFullScreen) { 
+                container.mozRequestFullScreen();
+            } else if (container.webkitRequestFullscreen) {
+                container.webkitRequestFullscreen();
+            } else if (container.msRequestFullscreen) {
+                container.msRequestFullscreen();
+            }
+        }
+
+        function refreshReport() {
+            location.reload();
+        }
+
+        function startImageTransition() {
+            const images = document.querySelectorAll('.image-container img');
+            let currentImageIndex = 0;
+
+            function transitionImages() {
+                images[currentImageIndex].classList.remove('active');
+                currentImageIndex = (currentImageIndex + 1) % images.length; 
+                images[currentImageIndex].classList.add('active');
+
+                setTimeout(transitionImages, 3000000);
+            }
+
+            images[currentImageIndex].classList.add('active');
+            setTimeout(transitionImages, 300000);
+        }
+
+        window.onload = startImageTransition;
+    </script>
 </html>
+
 
