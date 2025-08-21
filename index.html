@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json" />
     <title>LEVES</title>
     <style>
         body {
@@ -134,6 +136,13 @@
             <button id="refresh-btn" onclick="refreshReport()"><b>Atualizar</b></button>
         </div> -->
     </header>
+    <div id="installPrompt" class="green-style">
+  I;./AS;SAS
+</div>
+  <div class="video-modal" id="video-modal">
+    <button id="close-video-btn">Fechar</button>
+    <iframe id="video-player" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
     <main>
         <div class="report-container">
             <div class="image-container">
@@ -206,5 +215,49 @@
 
         window.onload = startImageTransition;
     </script>
+    <script>
+  let deferredPrompt;
+  const installPrompt = document.getElementById('installPrompt');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault(); // Impede que o navegador exiba o banner automático
+    deferredPrompt = e;
+
+    // Mostrar o botão de instalação customizado
+    installPrompt.style.display = 'block';
+  });
+
+  installPrompt.addEventListener('click', async () => {
+    installPrompt.style.display = 'none';
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        console.log('Usuário aceitou instalar');
+      } else {
+        console.log('Usuário recusou instalar');
+      }
+      deferredPrompt = null;
+    }
+  });
+
+  // Esconde o botão se o app já estiver instalado
+  window.addEventListener('appinstalled', () => {
+    console.log('App instalado');
+    installPrompt.style.display = 'none';
+  });
+       if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => {
+          console.log('✅ Service Worker registrado:', reg.scope);
+        })
+        .catch(err => {
+          console.error('❌ Falha ao registrar o Service Worker:', err);
+        });
+    });
+  }
+</script>
 </body>
 </html>
+
