@@ -1,6 +1,6 @@
 {
-  "name": "ADM",
-  "short_name": "ADM",
+  "name": "RELATORIO LV",
+  "short_name": "RELATORIO LV",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#121212",
@@ -14,8 +14,9 @@
     },
     {
       "src": "logo.png",
-      "sizes": "512x512",
+      "sizes": "520x520",
       "type": "image/png"
     }
   ]
 }
+
