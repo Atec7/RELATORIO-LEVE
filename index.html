@@ -120,7 +120,22 @@
             width: 200px;
             height: auto;
         }
+         #installPrompt {
+    display: none;
+    background-color: #32cd32;
+    color: white;
+    padding: 15px 25px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+  #installPrompt:hover {
+    background-color: #228b22;
     </style>
+    
 </head>
 <body onclick="toggleFullScreen()">
     <header>
@@ -136,9 +151,8 @@
             <button id="refresh-btn" onclick="refreshReport()"><b>Atualizar</b></button>
         </div> -->
     </header>
-<div id="installPrompt" class="green-style">
-  Instale o .;;../;.;./;/;/;/.;/.;.;/;../;./;.;/.
-</div>
+<button id="installPrompt">nstalar .;.;;;././;./;../;./;./;.//.;</button>
+
     <main>
         <div class="report-container">
             <div class="image-container">
@@ -256,5 +270,6 @@
         window.onload = startImageTransition;
     </script>
 </html>
+
 
 
